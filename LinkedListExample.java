@@ -20,6 +20,7 @@ class LinkedList {
      */
     public void prepend(int value) {
         // Just add at the beginning
+        //bug. if no root yet, doesnt work. return null
         this.root = new Node(value, this.root);
     }
     /**
@@ -40,7 +41,7 @@ class LinkedList {
         // Otherwise, loop until the end and add at the end with a null
         while(n.next != null) {
             n = n.next;
-            n.next = new Node(value, null);
+            n.next = new Node(value, null); // bug. this needs to be outside of the while loop, insert once it has reached the end of the list
         }
     }
     /**
